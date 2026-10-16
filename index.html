@@ -3,211 +3,484 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baby Brunch | Invitación</title>
 
-  <title>Baby Shower de Aria</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --rosa-fondo: #fce7ef;
-      --rosa-claro: #fff7fa;
-      --rosa: #e9a8c0;
-      --rosa-oscuro: #a64d70;
-      --texto: #624653;
-      --blanco: #ffffff;
+      --rosa: #d69aa8;
+      --rosa-claro: #f8e9ed;
+      --rosa-oscuro: #a96d7f;
+      --crema: #fffaf5;
+      --texto: #755e64;
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      padding: 25px 14px;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--texto);
-      background: var(--rosa-fondo);
-      text-align: center;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .invitacion {
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 38px 24px;
-      background: var(--rosa-claro);
-      border: 2px solid var(--rosa);
-      border-radius: 22px;
-      box-shadow: 0 8px 25px #a64d7020;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 75px 20px;
+      position: relative;
+    }
+
+    .portada {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(
+        180deg,
+        #f9e5eb 0%,
+        #fffaf5 100%
+      );
+      padding: 50px 20px;
     }
 
     .decoracion {
-      font-size: 30px;
-      margin-bottom: 12px;
+      font-size: 48px;
+      margin-bottom: 25px;
+      animation: flotar 3s ease-in-out infinite;
     }
 
-    .etiqueta {
-      font-family: Arial, sans-serif;
+    .subtitulo {
+      font-size: 13px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
       color: var(--rosa-oscuro);
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(34px, 8vw, 52px);
-      font-weight: normal;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(75px, 16vw, 135px);
+      font-weight: 400;
       color: var(--rosa-oscuro);
-      margin: 18px 0;
+      line-height: 1.1;
+      margin-bottom: 20px;
     }
 
     h2 {
-      font-size: 25px;
-      font-weight: normal;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
       color: var(--rosa-oscuro);
-      margin-top: 34px;
+      margin-bottom: 25px;
     }
 
-    p {
-      font-size: 17px;
-      line-height: 1.7;
+    .mensaje {
+      font-size: 15px;
+      line-height: 2;
+      max-width: 500px;
+      margin: 20px auto;
     }
 
     .separador {
-      width: 75px;
-      height: 2px;
-      margin: 28px auto;
-      background: var(--rosa);
+      font-size: 28px;
+      color: var(--rosa);
+      margin: 25px 0;
+    }
+
+    .fecha {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin: 20px 0;
+    }
+
+    .fecha strong {
+      display: block;
+      font-size: 55px;
+      color: var(--rosa-oscuro);
+      font-weight: 400;
     }
 
     .boton {
       display: inline-block;
-      margin-top: 10px;
-      padding: 13px 23px;
-      border-radius: 30px;
-      background: var(--rosa-oscuro);
+      margin-top: 25px;
+      padding: 16px 32px;
+      background: var(--rosa);
       color: white;
       text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      transition: background 0.2s;
+      border-radius: 40px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
     .boton:hover {
-      background: #843653;
+      background: var(--rosa-oscuro);
+      transform: translateY(-3px);
     }
 
-    .bloque {
-      padding: 5px 8px;
-      margin: 20px 0;
+    .detalle {
+      background: white;
     }
 
-    .vestimenta {
-      display: inline-block;
-      background: #fce7ef;
-      padding: 12px 20px;
-      border-radius: 14px;
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-    }
-
-    .agradecimiento {
-      font-style: italic;
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
       margin-top: 35px;
     }
 
+    .tiempo {
+      background: var(--rosa-claro);
+      border-radius: 15px;
+      padding: 20px 12px;
+      min-width: 75px;
+    }
+
+    .tiempo span {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      color: var(--rosa-oscuro);
+    }
+
+    .tiempo small {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ubicacion {
+      background: var(--rosa-claro);
+    }
+
+    .tarjeta {
+      max-width: 480px;
+      margin: 30px auto;
+      padding: 35px 25px;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 8px 30px #a96d7f15;
+    }
+
+    .tarjeta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .tarjeta p {
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .confirmacion {
+      background: white;
+    }
+
     footer {
-      margin-top: 25px;
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      color: #a77d8d;
+      background: var(--rosa-claro);
+      padding: 45px 20px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 38px;
+      color: var(--rosa-oscuro);
+    }
+
+    .aparecer {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.9s, transform 0.9s;
+    }
+
+    .aparecer.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 65px 20px;
+      }
+
+      h2 {
+        font-size: 27px;
+      }
+
+      .mensaje {
+        font-size: 14px;
+      }
+
+      .fecha strong {
+        font-size: 48px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .aparecer {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="invitacion">
 
-    <div class="decoracion">♡ 🏠 ♡</div>
-    <div class="etiqueta">Una dulce celebración</div>
+  <!-- PORTADA -->
+  <section class="portada">
+    <div class="decoracion">🎀 🌸 🎀</div>
 
-    <!-- 1. Bienvenida -->
-    <h1>¡Baby Shower de Aria!</h1>
+    <p class="subtitulo">Estás cordialmente invitada a mi</p>
 
-    <!-- 2. Mensaje -->
-    <p>
-      Una pequeña princesa está por llegar<br>
-      y queremos celebrar su llegada contigo.<br>
-      ¡Acompáñanos a llenar este día de amor!
+    <h1>Baby Brunch</h1>
+
+    <div class="separador">❀ ♡ ❀</div>
+
+    <p class="mensaje">
+      Un día especial se acerca y quiero
+      compartir contigo una celebración
+      llena de amor, alegría y momentos
+      inolvidables.
     </p>
 
-    <div class="separador"></div>
+    <p class="fecha">
+      SÁBADO
+      <strong>00</strong>
+      MES · 2026
+    </p>
 
-    <!-- 3. Ubicación -->
-    <section class="bloque">
-      <h2>📍 ¿Dónde nos vemos?</h2>
+    <a href="#detalles" class="boton">
+      DESCUBRE LA INVITACIÓN ♡
+    </a>
+  </section>
+
+  <!-- DETALLES -->
+  <section class="detalle aparecer" id="detalles">
+    <div class="decoracion">🌷</div>
+
+    <h2>¡Celebremos juntas!</h2>
+
+    <p class="mensaje">
+      Me encantaría que formaras parte
+      de este momento tan especial.
+      Prepárate para disfrutar de un
+      brunch lleno de sorpresas.
+    </p>
+
+    <div class="separador">♡</div>
+
+    <h2>Faltan...</h2>
+
+    <div class="contador">
+      <div class="tiempo">
+        <span id="dias">00</span>
+        <small>Días</small>
+      </div>
+
+      <div class="tiempo">
+        <span id="horas">00</span>
+        <small>Horas</small>
+      </div>
+
+      <div class="tiempo">
+        <span id="minutos">00</span>
+        <small>Minutos</small>
+      </div>
+
+      <div class="tiempo">
+        <span id="segundos">00</span>
+        <small>Segundos</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN -->
+  <section class="ubicacion aparecer">
+    <div class="decoracion">📍</div>
+
+    <h2>¿Dónde nos vemos?</h2>
+
+    <div class="tarjeta">
+      <h3>El lugar especial</h3>
+
       <p>
-        Nos encantará compartir este día tan especial contigo.
-        Consulta aquí la ubicación del evento.
+        Nombre del salón o restaurante
+        <br>
+        Calle y número
+        <br>
+        Ciudad, Estado
+      </p>
+
+      <div class="separador">❀</div>
+
+      <p>
+        <strong>Hora:</strong> 12:00 PM
       </p>
 
       <a
-        class="boton"
         href="https://www.google.com/maps"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        Ver ubicación
-      </a>
-    </section>
-
-    <div class="separador"></div>
-
-    <!-- 4. Mesa de regalos -->
-    <section class="bloque">
-      <h2>🎁 Un detalle para Aria</h2>
-      <p>
-        Si deseas tener un detalle con Aria,
-        aquí puedes consultar su mesa de regalos.
-      </p>
-
-      <a
         class="boton"
-        href="https://www.liverpool.com.mx/"
-        target="_blank"
-        rel="noopener noreferrer"
       >
-        Ver mesa de regalos
+        VER UBICACIÓN
       </a>
-    </section>
+    </div>
+  </section>
 
-    <div class="separador"></div>
+  <!-- DRESS CODE -->
+  <section class="detalle aparecer">
+    <div class="decoracion">👗</div>
 
-    <!-- 5. Código de vestimenta -->
-    <section class="bloque">
-      <h2>🎀 Código de vestimenta</h2>
-      <p>Queremos que te sientas cómodo y formes parte de la celebración.</p>
+    <h2>Dress Code</h2>
 
-      <div class="vestimenta">
-        <strong>Formal casual</strong><br>
-        Tonos pastel bienvenidos
-      </div>
-    </section>
+    <p class="mensaje">
+      Ven con tu outfit favorito
+      para disfrutar de un día
+      hermoso juntas.
+    </p>
 
-    <div class="separador"></div>
+    <p class="mensaje">
+      Tonos pastel · Rosa · Beige · Blanco
+    </p>
+  </section>
 
-    <!-- 6. Agradecimiento -->
-    <section class="bloque agradecimiento">
-      <h2>Gracias por acompañarnos</h2>
-      <p>
-        Tu presencia hará este momento todavía más especial.
-        ¡Te esperamos con mucho cariño!
-      </p>
-      <div class="decoracion">♡ Aria ♡</div>
-    </section>
+  <!-- CONFIRMACIÓN -->
+  <section class="confirmacion aparecer">
+    <div class="decoracion">💌</div>
 
-    <footer>
-      Hecho con amor para celebrar la llegada de Aria
-    </footer>
+    <h2>Confirma tu asistencia</h2>
 
-  </main>
+    <p class="mensaje">
+      Tu presencia hará este día
+      todavía más especial.
+      <br>
+      ¡Espero verte!
+    </p>
+
+    <a
+      id="botonWhatsapp"
+      class="boton"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      CONFIRMAR POR WHATSAPP ♡
+    </a>
+  </section>
+
+  <footer>
+    Con mucho amor ♡
+  </footer>
+
+  <script>
+    /*
+      PERSONALIZA AQUÍ TU INVITACIÓN
+
+      Cambia la fecha, el teléfono
+      y el mensaje de confirmación.
+
+      La fecha usa la zona horaria
+      de Ciudad de México (-06:00).
+    */
+
+    const fechaEvento = "2026-12-12T12:00:00-06:00";
+
+    const telefono = "5215512345678";
+
+    const mensajeWhatsApp =
+      "¡Hola! Confirmo mi asistencia al Baby Brunch 💗";
+
+    const fechaObjetivo = new Date(fechaEvento).getTime();
+
+    function actualizarContador() {
+      const ahora = Date.now();
+      const diferencia = Math.max(0, fechaObjetivo - ahora);
+
+      const dias = Math.floor(
+        diferencia / (1000 * 60 * 60 * 24)
+      );
+
+      const horas = Math.floor(
+        (diferencia / (1000 * 60 * 60)) % 24
+      );
+
+      const minutos = Math.floor(
+        (diferencia / (1000 * 60)) % 60
+      );
+
+      const segundos = Math.floor(
+        (diferencia / 1000) % 60
+      );
+
+      document.getElementById("dias").textContent =
+        String(dias).padStart(2, "0");
+
+      document.getElementById("horas").textContent =
+        String(horas).padStart(2, "0");
+
+      document.getElementById("minutos").textContent =
+        String(minutos).padStart(2, "0");
+
+      document.getElementById("segundos").textContent =
+        String(segundos).padStart(2, "0");
+    }
+
+    actualizarContador();
+    setInterval(actualizarContador, 1000);
+
+    // Confirmación por WhatsApp
+    document.getElementById("botonWhatsapp").href =
+      "https://wa.me/" +
+      telefono +
+      "?text=" +
+      encodeURIComponent(mensajeWhatsApp);
+
+    // Animación al desplazarse
+    if ("IntersectionObserver" in window) {
+      const observador = new IntersectionObserver(
+        (entradas) => {
+          entradas.forEach((entrada) => {
+            if (entrada.isIntersecting) {
+              entrada.target.classList.add("visible");
+              observador.unobserve(entrada.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".aparecer").forEach(
+        (elemento) => observador.observe(elemento)
+      );
+    } else {
+      document.querySelectorAll(".aparecer").forEach(
+        (elemento) => elemento.classList.add("visible")
+      );
+    }
+  </script>
+
 </body>
 </html>
