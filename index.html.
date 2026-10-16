@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Baby Shower de Aria</title>
+
+  <style>
+    :root {
+      --rosa-fondo: #fce7ef;
+      --rosa-claro: #fff7fa;
+      --rosa: #e9a8c0;
+      --rosa-oscuro: #a64d70;
+      --texto: #624653;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 25px 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--texto);
+      background: var(--rosa-fondo);
+      text-align: center;
+    }
+
+    .invitacion {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 38px 24px;
+      background: var(--rosa-claro);
+      border: 2px solid var(--rosa);
+      border-radius: 22px;
+      box-shadow: 0 8px 25px #a64d7020;
+    }
+
+    .decoracion {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .etiqueta {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      color: var(--rosa-oscuro);
+    }
+
+    h1 {
+      font-size: clamp(34px, 8vw, 52px);
+      font-weight: normal;
+      color: var(--rosa-oscuro);
+      margin: 18px 0;
+    }
+
+    h2 {
+      font-size: 25px;
+      font-weight: normal;
+      color: var(--rosa-oscuro);
+      margin-top: 34px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .separador {
+      width: 75px;
+      height: 2px;
+      margin: 28px auto;
+      background: var(--rosa);
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 13px 23px;
+      border-radius: 30px;
+      background: var(--rosa-oscuro);
+      color: white;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .boton:hover {
+      background: #843653;
+    }
+
+    .bloque {
+      padding: 5px 8px;
+      margin: 20px 0;
+    }
+
+    .vestimenta {
+      display: inline-block;
+      background: #fce7ef;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .agradecimiento {
+      font-style: italic;
+      margin-top: 35px;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #a77d8d;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="invitacion">
+
+    <div class="decoracion">♡ 🏠 ♡</div>
+    <div class="etiqueta">Una dulce celebración</div>
+
+    <!-- 1. Bienvenida -->
+    <h1>¡Baby Shower de Aria!</h1>
+
+    <!-- 2. Mensaje -->
+    <p>
+      Una pequeña princesa está por llegar<br>
+      y queremos celebrar su llegada contigo.<br>
+      ¡Acompáñanos a llenar este día de amor!
+    </p>
+
+    <div class="separador"></div>
+
+    <!-- 3. Ubicación -->
+    <section class="bloque">
+      <h2>📍 ¿Dónde nos vemos?</h2>
+      <p>
+        Nos encantará compartir este día tan especial contigo.
+        Consulta aquí la ubicación del evento.
+      </p>
+
+      <a
+        class="boton"
+        href="https://www.google.com/maps"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver ubicación
+      </a>
+    </section>
+
+    <div class="separador"></div>
+
+    <!-- 4. Mesa de regalos -->
+    <section class="bloque">
+      <h2>🎁 Un detalle para Aria</h2>
+      <p>
+        Si deseas tener un detalle con Aria,
+        aquí puedes consultar su mesa de regalos.
+      </p>
+
+      <a
+        class="boton"
+        href="https://www.liverpool.com.mx/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver mesa de regalos
+      </a>
+    </section>
+
+    <div class="separador"></div>
+
+    <!-- 5. Código de vestimenta -->
+    <section class="bloque">
+      <h2>🎀 Código de vestimenta</h2>
+      <p>Queremos que te sientas cómodo y formes parte de la celebración.</p>
+
+      <div class="vestimenta">
+        <strong>Formal casual</strong><br>
+        Tonos pastel bienvenidos
+      </div>
+    </section>
+
+    <div class="separador"></div>
+
+    <!-- 6. Agradecimiento -->
+    <section class="bloque agradecimiento">
+      <h2>Gracias por acompañarnos</h2>
+      <p>
+        Tu presencia hará este momento todavía más especial.
+        ¡Te esperamos con mucho cariño!
+      </p>
+      <div class="decoracion">♡ Aria ♡</div>
+    </section>
+
+    <footer>
+      Hecho con amor para celebrar la llegada de Aria
+    </footer>
+
+  </main>
+</body>
+</html>
