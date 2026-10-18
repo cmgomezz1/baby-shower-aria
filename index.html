@@ -173,6 +173,14 @@
       transition: opacity 0.3s ease;
     }
 
+    .seal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 50%;
+    }
+
     .envelope.open .envelope-flap {
       transform: rotateX(180deg);
     }
@@ -583,7 +591,9 @@ body {
         </div>
         <div class="envelope-front"></div>
         <div class="envelope-flap"></div>
-        <div class="seal">A</div>
+        <div class="seal">
+          <img src="images/sello-aria.png" alt="Sello de Aria">
+        </div>
       </div>
 
       <button class="open-label" id="openButton" type="button">
