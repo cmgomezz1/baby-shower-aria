@@ -450,6 +450,90 @@
         transition-duration: 0.01ms !important;
       }
     }
+    /* Contador regresivo de Aria */
+.contador-aria {
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 560px;
+  box-sizing: border-box;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(250, 242, 237, 0.97);
+  border: 1px solid #ead4d2;
+  border-bottom: none;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -4px 18px rgba(110, 72, 76, 0.10);
+  color: #79545b;
+  text-align: center;
+  font-family: inherit;
+}
+
+.contador-aria-titulo {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  margin-bottom: 7px;
+}
+
+.contador-aria-tiempo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.contador-aria-unidad {
+  min-width: 42px;
+}
+
+.contador-aria-numero {
+  display: block;
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.contador-aria-etiqueta {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.contador-aria-hoy {
+  font-size: 18px;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+/* Reserva espacio para que el contador no tape el contenido */
+body {
+  padding-bottom: 105px;
+}
+
+@media (max-width: 380px) {
+  .contador-aria {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .contador-aria-tiempo {
+    gap: 6px;
+  }
+
+  .contador-aria-unidad {
+    min-width: 37px;
+  }
+
+  .contador-aria-numero {
+    font-size: 21px;
+  }
+}
+
+    
   </style>
 </head>
 
@@ -727,6 +811,82 @@
       giftLink.addEventListener("click", (event) => event.preventDefault());
     }
   </script>
+  <div class="contador-aria" id="contadorAria" aria-live="off">
+  <div class="contador-aria-titulo" id="contadorTitulo">
+    FALTA POQUITO PARA CONOCER A ARIA
+  </div>
+
+  <div class="contador-aria-tiempo" id="contadorTiempo">
+    <div class="contador-aria-unidad">
+      <span class="contador-aria-numero" id="diasAria">--</span>
+      <span class="contador-aria-etiqueta">DÍAS</span>
+    </div>
+
+    <div class="contador-aria-unidad">
+      <span class="contador-aria-numero" id="horasAria">--</span>
+      <span class="contador-aria-etiqueta">HORAS</span>
+    </div>
+
+    <div class="contador-aria-unidad">
+      <span class="contador-aria-numero" id="minutosAria">--</span>
+      <span class="contador-aria-etiqueta">MIN</span>
+    </div>
+
+    <div class="contador-aria-unidad">
+      <span class="contador-aria-numero" id="segundosAria">--</span>
+      <span class="contador-aria-etiqueta">SEG</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Fecha del evento: 14 de noviembre de 2026.
+  // Por ahora, el contador llega a las 00:00 de ese día.
+  const fechaEvento = new Date("2026-11-14T12:30:00-06:00");
+  const inicioDelDia = new Date("2026-11-14T00:00:00-06:00");
+  const inicioDelDiaSiguiente = new Date("2026-11-15T00:00:00-06:00");
+
+  const titulo = document.getElementById("contadorTitulo");
+  const tiempo = document.getElementById("contadorTiempo");
+
+  function actualizarContadorAria() {
+    const ahora = new Date();
+
+    if (ahora >= inicioDelDia && ahora < inicioDelDiaSiguiente) {
+      titulo.textContent = "";
+      tiempo.innerHTML =
+        '<div class="contador-aria-hoy">' +
+        '¡Hoy celebramos a Aria! ♡' +
+        '</div>';
+      return;
+    }
+
+    if (ahora >= inicioDelDiaSiguiente) {
+      titulo.textContent = "¡GRACIAS POR CELEBRAR CON ARIA! ♡";
+      tiempo.innerHTML = "";
+      return;
+    }
+
+    const diferencia = fechaEvento.getTime() - ahora.getTime();
+    const dias = Math.floor(diferencia / 86400000);
+    const horas = Math.floor((diferencia % 86400000) / 3600000);
+    const minutos = Math.floor((diferencia % 3600000) / 60000);
+    const segundos = Math.floor((diferencia % 60000) / 1000);
+
+    document.getElementById("diasAria").textContent = dias;
+    document.getElementById("horasAria").textContent =
+      String(horas).padStart(2, "0");
+    document.getElementById("minutosAria").textContent =
+      String(minutos).padStart(2, "0");
+    document.getElementById("segundosAria").textContent =
+      String(segundos).padStart(2, "0");
+  }
+
+  actualizarContadorAria();
+  setInterval(actualizarContadorAria, 1000);
+})();
+</script>
 
 </body>
 </html>
