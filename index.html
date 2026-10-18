@@ -383,6 +383,65 @@
       cursor: zoom-in;
     }
 
+    /* Itinerario de Aria */
+    .itinerary {
+      max-width: 520px;
+      margin: 25px auto 0;
+      text-align: left;
+    }
+    
+    .itinerary-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 0;
+    }
+    
+    .itinerary-icon {
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #f8ecea;
+      color: var(--pink-dark);
+      font-size: 22px;
+    }
+    
+    .itinerary-time {
+      margin: 0;
+      color: var(--pink-dark);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+    }
+    
+    .itinerary-item h3 {
+      margin: 3px 0 5px;
+      color: var(--pink-dark);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    
+    .itinerary-item p:last-child {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    
+    .photo-single {
+      max-width: 440px;
+      margin: 25px auto 0;
+    }
+    
+    .photo-single .photo-frame {
+      aspect-ratio: 4 / 5;
+    }
+
     .rsvp-note {
       max-width: 450px;
       margin: 0 auto;
@@ -668,6 +727,84 @@ body {
       <p class="event-details">Formal casual</p>
     </section>
 
+    <!-- 4. GALERÍA DE IMÁGENES -->
+    <section class="section" id="galeria-celebracion">
+      <p class="eyebrow">Momentos que nos unen</p>
+      <h2>Un poquito de nuestra historia</h2>
+      <p>Queremos compartir contigo algunos recuerdos especiales.</p>
+
+      <div class="gallery">
+        <div class="photo-frame">
+          <img src="images/galeria3-aria.jpg"
+               alt="Recuerdo especial de la familia de Aria"
+               loading="lazy">
+        </div>
+        <div class="photo-frame">
+          <img src="images/galeria4-aria.jpg"
+               alt="Otro recuerdo especial de la familia de Aria"
+               loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ITINERARIO -->
+    <section class="section" id="itinerario">
+      <p class="eyebrow">Compartiremos momentos especiales</p>
+      <h2>Nuestro itinerario</h2>
+      <p>Estos son los momentos que disfrutaremos juntos.</p>
+
+      <div class="itinerary">
+        <article class="itinerary-item">
+          <div class="itinerary-icon" aria-hidden="true">♡</div>
+          <div>
+            <p class="itinerary-time">12:30 P. M.</p>
+            <h3>Bienvenida</h3>
+            <p>Recepción de invitados y comienzo de nuestra celebración.</p>
+          </div>
+        </article>
+
+        <article class="itinerary-item">
+          <div class="itinerary-icon" aria-hidden="true">♡</div>
+          <div>
+            <p class="itinerary-time">1:00 P. M.</p>
+            <h3>Baby Brunch</h3>
+            <p>Una comida para disfrutar, compartir y celebrar en compañía de nuestros seres queridos.</p>
+          </div>
+        </article>
+
+        <article class="itinerary-item">
+          <div class="itinerary-icon" aria-hidden="true">✧</div>
+          <div>
+            <p class="itinerary-time">2:30 P. M.</p>
+            <h3>Juegos y actividades</h3>
+            <p>Dinámicas especiales para compartir risas, participar y celebrar la llegada de Aria.</p>
+          </div>
+        </article>
+
+        <article class="itinerary-item">
+          <div class="itinerary-icon" aria-hidden="true">♡</div>
+          <div>
+            <p class="itinerary-time">4:30 P. M.</p>
+            <h3>Despedida</h3>
+            <p>Despedida y cierre de nuestra celebración.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. FOTO INDIVIDUAL -->
+    <section class="section" id="foto-especial">
+      <p class="eyebrow">Un recuerdo para siempre</p>
+      <div class="photo-single">
+        <div class="photo-frame">
+          <img src="images/galeria5-aria.jpg"
+               alt="Un recuerdo especial de Aria y su familia"
+               loading="lazy">
+        </div>
+      </div>
+      <p class="photo-caption">Con amor, para nuestra pequeña Aria</p>
+    </section>
+
     <!-- REGALOS -->
     <section class="section" id="regalos">
       <p class="eyebrow">Un detalle para Aria</p>
@@ -692,7 +829,7 @@ body {
 
     <!-- GALERÍA: DOS FOTOS ADICIONALES -->
     <section class="section" id="galeria">
-      <p class="eyebrow">Nuestra pequeña familia</p>
+      <p class="eyebrow">Màs recuerdos para compartir</p>
       <!-- <h2>Momentos especiales</h2> -->
 
       <div class="gallery">
