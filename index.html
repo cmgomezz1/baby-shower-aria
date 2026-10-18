@@ -120,11 +120,12 @@
       transition: transform 0.8s ease;
     }
 
-    .letter .letter-a {
-      color: var(--pink-dark);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 54px;
-      line-height: 1.1;
+    .letter .letter-logo {
+      display: block;
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      margin: 0 auto;
     }
 
     .letter small {
@@ -586,7 +587,7 @@ body {
            tabindex="0" aria-label="Abrir invitación">
         <div class="envelope-back"></div>
         <div class="letter">
-          <span class="letter-a">A</span>
+          <img class="letter-logo" src="images/logo-aria.png" alt="Logo de Aria">
           <small>Baby brunch</small>
         </div>
         <div class="envelope-front"></div>
